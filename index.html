@@ -179,18 +179,21 @@
             </div>
         </section>
 
-        <!-- Sekcja Kontakt & Formularz (RODO Compliant) -->
+        <!-- Sekcja Kontakt & Formularz (RODO & Anti-Spam Compliant) -->
         <section id="contact" class="bg-white/90 backdrop-blur-md p-8 sm:p-10 rounded-3xl border border-stone-200/80 shadow-sm">
             <span class="text-xs font-semibold uppercase tracking-widest text-brand-600 block mb-1">Rezerwacja</span>
             <h2 class="text-3xl font-serif text-brand-900 mb-2">Rezerwacja & Kontakt</h2>
             <p class="text-xs text-stone-500 mb-8 font-light">Wypełnij formularz – skontaktujemy się w celu potwierdzenia terminu.</p>
 
-            <!-- Status wysyłki AJAX -->
-            <div id="form-status" class="hidden mb-6 p-4 rounded-xl text-sm font-medium transition-all"></div>
+            <!-- Dynamiczny kontener komunikatów (AJAX Feedback) -->
+            <div id="form-status" class="hidden mb-6 p-4 rounded-xl text-sm font-medium transition-all" role="alert"></div>
 
             <form id="contact-form" action="https://formsubmit.co/wiktor.kozlowski.polska@gmail.com" method="POST" class="space-y-5 max-w-xl">
-                <!-- Honeypot & Anti-spam dla FormSubmit.co -->
+
+                <!-- Honeypot (Pułapka na boty - ukryte przed ludźmi) -->
                 <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
+
+                <!-- Wyłączenie reCAPTCHA po stronie FormSubmit (obsługujemy walidację przez AJAX) -->
                 <input type="hidden" name="_captcha" value="false">
 
                 <div>
@@ -217,7 +220,7 @@
                 </div>
 
                 <button type="submit" id="submit-btn" class="w-full bg-brand-900 hover:bg-brand-700 text-white text-xs uppercase tracking-widest font-semibold py-4 rounded-xl transition-all shadow-md flex justify-center items-center">
-                    <span>Wyślij zapytanie</span>
+                    <span id="btn-text">Wyślij zapytanie</span>
                 </button>
             </form>
         </section>
@@ -303,6 +306,56 @@
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.innerText = 'Wyślij zapytanie';
+            }
+        });
+            // Asynchroniczna obsługa formularza z nagłówkami JSON
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+
+        contactForm.addEventListener('submit', async function (event) {
+            // 1. Zablokuj domyślne przekierowanie przeglądarki
+            event.preventDefault();
+
+            // 2. Stan blokady UI (Prevent Double-Submit)
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+            btnText.innerText = 'Wysyłanie...';
+            formStatus.classList.add('hidden');
+
+            // 3. Przygotowanie ładunku danych
+            const formData = new FormData(contactForm);
+
+            try {
+                // 4. Wysyłka asynchroniczna z wymuszeniem odpowiedzi JSON
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Sukces HTTP 200-299
+                    formStatus.className = "mb-6 p-4 rounded-xl text-sm font-medium bg-emerald-50 text-emerald-800 border border-emerald-200";
+                    formStatus.innerText = "Dziękujemy! Wiadomość została pomyślnie wysłana. Skontaktujemy się z Tobą wkrótce.";
+                    formStatus.classList.remove('hidden');
+                    contactForm.reset(); // Czyszczenie pól
+                } else {
+                    throw new Error(`Błąd serwera: ${response.status}`);
+                }
+            } catch (error) {
+                // Błąd sieciowy lub HTTP >= 400
+                formStatus.className = "mb-6 p-4 rounded-xl text-sm font-medium bg-rose-50 text-rose-800 border border-rose-200";
+                formStatus.innerText = "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później lub skontaktuj się z nami bezpośrednio.";
+                formStatus.classList.remove('hidden');
+            } finally {
+                // 5. Przywrócenie interaktywności przycisku
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                btnText.innerText = 'Wyślij zapytanie';
             }
         });
     </script>
