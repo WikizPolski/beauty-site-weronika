@@ -269,50 +269,10 @@
             }
         });
 
-        // Obsługa bezserwerowej wysyłki formularza (AJAX Fetch API)
+        // Asynchroniczna obsługa formularza z nagłówkami JSON (AJAX Fetch API)
         const contactForm = document.getElementById('contact-form');
         const formStatus = document.getElementById('form-status');
         const submitBtn = document.getElementById('submit-btn');
-
-        contactForm.addEventListener('submit', async function (event) {
-            event.preventDefault();
-
-            submitBtn.disabled = true;
-            submitBtn.innerText = 'Wysyłanie...';
-
-            const formData = new FormData(contactForm);
-
-            try {
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    formStatus.className = "mb-6 p-4 rounded-xl text-sm font-medium bg-emerald-50 text-emerald-800 border border-emerald-200";
-                    formStatus.innerText = "Dziękujemy! Wiadomość została wysłana. Skontaktujemy się wkrótce.";
-                    formStatus.classList.remove('hidden');
-                    contactForm.reset();
-                } else {
-                    throw new Error('Błąd serwera');
-                }
-            } catch (error) {
-                formStatus.className = "mb-6 p-4 rounded-xl text-sm font-medium bg-rose-50 text-rose-800 border border-rose-200";
-                formStatus.innerText = "Coś poszło nie tak. Spróbuj ponownie później lub skontaktuj się telefonicznie.";
-                formStatus.classList.remove('hidden');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerText = 'Wyślij zapytanie';
-            }
-        });
-            // Asynchroniczna obsługa formularza z nagłówkami JSON
-        const contactForm = document.getElementById('contact-form');
-        const formStatus = document.getElementById('form-status');
-        const submitBtn = document.getElementById('submit-btn');
-        const btnText = document.getElementById('btn-text');
 
         contactForm.addEventListener('submit', async function (event) {
             // 1. Zablokuj domyślne przekierowanie przeglądarki
@@ -321,7 +281,7 @@
             // 2. Stan blokady UI (Prevent Double-Submit)
             submitBtn.disabled = true;
             submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
-            btnText.innerText = 'Wysyłanie...';
+            submitBtn.innerText = 'Wysyłanie...';
             formStatus.classList.add('hidden');
 
             // 3. Przygotowanie ładunku danych
@@ -355,7 +315,7 @@
                 // 5. Przywrócenie interaktywności przycisku
                 submitBtn.disabled = false;
                 submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
-                btnText.innerText = 'Wyślij zapytanie';
+                submitBtn.innerText = 'Wyślij zapytanie';
             }
         });
     </script>
