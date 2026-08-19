@@ -4,21 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Salon Beauty – Strona Główna</title>
+    <title>Botanique Beauty Studio – Naturalna Pielęgnacja</title>
+
+    <!-- Google Fonts (Cormorant Garamond + Plus Jakarta Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Customizacja tokenów projektowych w locie
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
                     colors: {
-                        brand: {
-                            50: '#fdf8f6',
-                            100: '#f2e8e5',
-                            600: '#9e5a57',
-                            700: '#844745',
-                            900: '#432322',
+                        sage: {
+                            50: '#f4f6f4',
+                            100: '#e3e8e3',
+                            600: '#5a6e5b',
+                            800: '#3a4d39',
+                            900: '#273526',
+                        },
+                        sand: {
+                            50: '#fdfbf7',
+                            100: '#f7f3eb',
+                            200: '#ece4d5',
                         }
                     }
                 }
@@ -26,201 +40,199 @@
         }
     </script>
 </head>
-<body class="bg-brand-50 text-stone-800 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+<body class="bg-sand-50 text-stone-800 font-sans antialiased selection:bg-sage-100 selection:text-sage-900">
 
     <!-- Nawigacja (Glassmorphism) -->
-    <header class="bg-white/70 backdrop-blur-md sticky top-0 z-40 border-b border-stone-200/60 transition-all duration-300">
+    <header class="bg-sand-50/80 backdrop-blur-md sticky top-0 z-40 border-b border-sand-200/60 transition-all duration-300">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <span class="text-2xl font-serif tracking-widest text-brand-900 uppercase">BeautySalon</span>
-            <ul class="flex space-x-8 text-xs font-semibold uppercase tracking-wider text-stone-600">
-                <li><a href="#services" class="hover:text-brand-600 transition-colors">Cennik</a></li>
-                <li><a href="#team" class="hover:text-brand-600 transition-colors">Personel</a></li>
-                <li><a href="#contact" class="hover:text-brand-600 transition-colors">Kontakt</a></li>
+            <span class="text-2xl font-serif tracking-widest text-sage-900 uppercase font-semibold">Botanique</span>
+            <ul class="flex space-x-6 sm:space-x-8 text-xs font-medium uppercase tracking-wider text-stone-600">
+                <li><a href="#services" class="hover:text-sage-800 transition-colors">Cennik</a></li>
+                <li><a href="#team" class="hover:text-sage-800 transition-colors">Zespół</a></li>
+                <li><a href="#contact" class="hover:text-sage-800 transition-colors">Kontakt</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-20 sm:space-y-28">
 
-        <!-- Sekcja Hero -->
-        <section class="text-center py-20 bg-gradient-to-b from-white to-brand-50/50 rounded-3xl border border-stone-200/50 shadow-sm p-8 relative overflow-hidden">
-            <div class="absolute -top-24 -left-24 w-72 h-72 bg-brand-100/50 rounded-full blur-3xl pointer-events-none"></div>
-            <span class="text-xs font-semibold uppercase tracking-widest text-brand-600 mb-3 block">Sztuka Pielęgnacji</span>
-            <h1 class="text-4xl sm:text-6xl font-serif text-brand-900 tracking-tight leading-tight">
-                Nowoczesna Pielęgnacja & Beauty
-            </h1>
-            <p class="mt-6 text-base text-stone-600 max-w-xl mx-auto font-light leading-relaxed">
-                Innowacyjne zabiegi dopasowane do Twoich potrzeb w bezpiecznym i komfortowym otoczeniu.
-            </p>
-            <div class="mt-8">
-                <a href="#contact" class="inline-block bg-brand-900 hover:bg-brand-700 text-white text-xs uppercase tracking-widest font-semibold px-8 py-4 rounded-full shadow-lg shadow-brand-900/10 transition-all transform hover:-translate-y-0.5">
-                    Zarezerwuj wizytę
-                </a>
+        <!-- Sekcja Hero z klimatycznym tłem -->
+        <section class="relative rounded-3xl overflow-hidden shadow-xl min-h-[500px] flex items-center justify-center text-center p-6 sm:p-12">
+            <!-- Tło obrazkowe + Overlay ograniczający jasność -->
+            <img src="assets/images/hero-bg.webp" alt="Wnętrze salonu Botanique" class="absolute inset-0 w-full h-full object-cover object-center" decoding="async">
+            <div class="absolute inset-0 bg-stone-900/40 backdrop-blur-[2px]"></div>
+
+            <div class="relative z-10 max-w-2xl mx-auto text-white space-y-6">
+                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-sand-200 block">Holistyczne Studio Urody</span>
+                <h1 class="text-4xl sm:text-6xl font-serif font-light tracking-tight leading-tight">
+                    Odkryj Harmonię Naturalnego Piękna
+                </h1>
+                <p class="text-sm sm:text-base text-sand-100 font-light leading-relaxed max-w-lg mx-auto">
+                    Spersonalizowane zabiegi kosmetologiczne wykonywane w oparciu o naturalne preparaty i wyciszającą atmosferę.
+                </p>
+                <div class="pt-4">
+                    <a href="#contact" class="inline-block bg-sand-50 hover:bg-sand-100 text-sage-900 text-xs uppercase tracking-widest font-semibold px-8 py-4 rounded-full shadow-lg transition-all transform hover:-translate-y-0.5">
+                        Zarezerwuj Wizytę
+                    </a>
+                </div>
             </div>
         </section>
 
         <!-- Sekcja Cennik -->
         <section id="services">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
-                <div>
-                    <span class="text-xs font-semibold uppercase tracking-widest text-brand-600 block mb-1">Oferta</span>
-                    <h2 class="text-3xl font-serif text-brand-900">Cennik Zabiegów</h2>
-                </div>
+            <div class="mb-10 text-center sm:text-left">
+                <span class="text-xs font-semibold uppercase tracking-widest text-sage-800 block mb-1">Pielęgnacja</span>
+                <h2 class="text-3xl sm:text-4xl font-serif text-sage-900">Cennik Zabiegów</h2>
             </div>
 
             <div class="grid gap-6 md:grid-cols-2">
                 <!-- Usługa 1 -->
-                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-stone-200/80 shadow-sm hover:shadow-md transition-all group flex flex-col justify-between">
+                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-sand-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-baseline mb-2">
-                            <h3 class="font-serif text-lg text-brand-900 group-hover:text-brand-600 transition-colors">Manicure Hybrydowy</h3>
-                            <span class="font-semibold text-brand-900 text-lg">120 zł</span>
+                            <h3 class="font-serif text-xl text-sage-900">Manicure Hybrydowy</h3>
+                            <span class="font-semibold text-sage-800 text-lg">120 zł</span>
                         </div>
-                        <p class="text-xs text-stone-500 font-light leading-relaxed">Pielęgnacja paznokci z utwardzeniem UV</p>
+                        <p class="text-xs text-stone-500 font-light leading-relaxed">Pielęgnacja paznokci z utwardzeniem UV/LED.</p>
                     </div>
-                    <div class="mt-4 pt-4 border-t border-stone-100 flex justify-between items-center">
+                    <div class="mt-6 pt-4 border-t border-sand-100">
                         <button onclick="openModal('Manicure Hybrydowy', 'Zabieg obejmuje opracowanie skórek, nadanie kształtu płytce oraz nałożenie bazy, koloru i topu utwardzanego w lampie LED. Trwałość do 3 tygodni.')"
-                                class="text-xs text-brand-600 font-semibold uppercase tracking-wider hover:text-brand-900 transition-colors">
-                            Zobacz szczegóły i przeciwwskazania &rarr;
+                                class="text-xs text-sage-800 font-semibold uppercase tracking-wider hover:text-sage-600 transition-colors">
+                            Szczegóły zabiegu &rarr;
                         </button>
                     </div>
                 </div>
 
                 <!-- Usługa 2 -->
-                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-stone-200/80 shadow-sm hover:shadow-md transition-all group flex flex-col justify-between">
+                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-sand-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-baseline mb-2">
-                            <h3 class="font-serif text-lg text-brand-900 group-hover:text-brand-600 transition-colors">Zabieg Nawilżający Twarzy</h3>
-                            <span class="font-semibold text-brand-900 text-lg">220 zł</span>
+                            <h3 class="font-serif text-xl text-sage-900">Zabieg Nawilżający Twarzy</h3>
+                            <span class="font-semibold text-sage-800 text-lg">220 zł</span>
                         </div>
-                        <p class="text-xs text-stone-500 font-light leading-relaxed">Głębokie oczyszczanie i kwas hialuronowy</p>
+                        <p class="text-xs text-stone-500 font-light leading-relaxed">Głębokie oczyszczanie i botaniczny kwas hialuronowy.</p>
                     </div>
-                    <div class="mt-4 pt-4 border-t border-stone-100 flex justify-between items-center">
+                    <div class="mt-6 pt-4 border-t border-sand-100">
                         <button onclick="openModal('Zabieg Nawilżający Twarzy', 'Intensywne nawilżanie dla skóry suchej i zmęczonej. Używamy profesjonalnych ampułek z kwasem hialuronowym.')"
-                                class="text-xs text-brand-600 font-semibold uppercase tracking-wider hover:text-brand-900 transition-colors">
-                            Zobacz szczegóły i przeciwwskazania &rarr;
+                                class="text-xs text-sage-800 font-semibold uppercase tracking-wider hover:text-sage-600 transition-colors">
+                            Szczegóły zabiegu &rarr;
                         </button>
                     </div>
                 </div>
 
                 <!-- Usługa 3 -->
-                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-stone-200/80 shadow-sm hover:shadow-md transition-all group flex flex-col justify-between">
+                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-sand-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-baseline mb-2">
-                            <h3 class="font-serif text-lg text-brand-900 group-hover:text-brand-600 transition-colors">Mikrodermabrazja</h3>
-                            <span class="font-semibold text-brand-900 text-lg">300 zł</span>
+                            <h3 class="font-serif text-xl text-sage-900">Mikrodermabrazja Diamentowa</h3>
+                            <span class="font-semibold text-sage-800 text-lg">300 zł</span>
                         </div>
-                        <p class="text-xs text-stone-500 font-light leading-relaxed">Pielęgnacja skóry wykonywana specjalną tarką</p>
+                        <p class="text-xs text-stone-500 font-light leading-relaxed">Bezinwazyjne złuszczanie naskórka głowicą diamentową.</p>
                     </div>
-                    <div class="mt-4 pt-4 border-t border-stone-100 flex justify-between items-center">
-                        <button onclick="openModal('Mikrodermabrazja', 'Zabieg obejmuje ścieranie skóry takim wichajsterkiem - pstryczkiem elektryczkiem')"
-                                class="text-xs text-brand-600 font-semibold uppercase tracking-wider hover:text-brand-900 transition-colors">
-                            Zobacz szczegóły i przeciwwskazania &rarr;
+                    <div class="mt-6 pt-4 border-t border-sand-100">
+                        <button onclick="openModal('Mikrodermabrazja Diamentowa', 'Precyzyjne, kontrolowane ścieranie warstwy rogowej naskórka. Wygładza skórę, stymuluje produkcję kolagenu i zmniejsza przebarwienia.')"
+                                class="text-xs text-sage-800 font-semibold uppercase tracking-wider hover:text-sage-600 transition-colors">
+                            Szczegóły zabiegu &rarr;
                         </button>
                     </div>
                 </div>
 
                 <!-- Usługa 4 -->
-                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-stone-200/80 shadow-sm hover:shadow-md transition-all group flex flex-col justify-between">
+                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-sand-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-baseline mb-2">
-                            <h3 class="font-serif text-lg text-brand-900 group-hover:text-brand-600 transition-colors">Efekt BTX</h3>
-                            <span class="font-semibold text-brand-900 text-lg">350 zł</span>
+                            <h3 class="font-serif text-xl text-sage-900">Mezoterapia Mikroigłowa</h3>
+                            <span class="font-semibold text-sage-800 text-lg">350 zł</span>
                         </div>
-                        <p class="text-xs text-stone-500 font-light leading-relaxed">Minimalizacja zmarszczek mimicznych</p>
+                        <p class="text-xs text-stone-500 font-light leading-relaxed">Stymulacja odnowy komórkowej i redukcja mikrozmarszczek.</p>
                     </div>
-                    <div class="mt-4 pt-4 border-t border-stone-100 flex justify-between items-center">
-                        <button onclick="openModal('Efekt BTX', 'Zabieg obejmuje wkłucie się w pupę i wpuszczenie naszego opatentowanego produktu w celu osiągnięcia efektu BTX')"
-                                class="text-xs text-brand-600 font-semibold uppercase tracking-wider hover:text-brand-900 transition-colors">
-                            Zobacz szczegóły i przeciwwskazania &rarr;
+                    <div class="mt-6 pt-4 border-t border-sand-100">
+                        <button onclick="openModal('Mezoterapia Mikroigłowa', 'Zabieg polegający na mikronakłuwaniu skóry, co pobudza naturalne procesy regeneracyjne oraz ułatwia wprowadzanie substancji aktywnych.')"
+                                class="text-xs text-sage-800 font-semibold uppercase tracking-wider hover:text-sage-600 transition-colors">
+                            Szczegóły zabiegu &rarr;
                         </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sekcja Personel -->
+        <!-- Sekcja Personel ze zdjęciami (Lazy-loaded, RWD Responsive) -->
         <section id="team">
-            <span class="text-xs font-semibold uppercase tracking-widest text-brand-600 block mb-1">Doświadczenie</span>
-            <h2 class="text-3xl font-serif text-brand-900 mb-8">Nasz Zespół</h2>
-            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="mb-10 text-center sm:text-left">
+                <span class="text-xs font-semibold uppercase tracking-widest text-sage-800 block mb-1">Eksperci</span>
+                <h2 class="text-3xl sm:text-4xl font-serif text-sage-900">Nasz Zespół</h2>
+            </div>
+
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 <!-- Osoba 1 -->
-                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-stone-200/80 shadow-sm flex items-center space-x-5">
-                    <div class="w-14 h-14 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-serif text-lg font-bold border border-brand-600/20 shrink-0">
-                        WE
-                    </div>
-                    <div>
-                        <h3 class="font-serif text-lg text-brand-900">Weronika</h3>
-                        <p class="text-xs uppercase tracking-wider text-brand-600 font-semibold mt-0.5">Główna Kosmetolog & Stylistka</p>
+                <div class="bg-white/80 backdrop-blur-sm rounded-2xl border border-sand-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <img src="assets/images/team-weronika.webp" alt="Weronika - Główna Kosmetolog" class="w-full h-64 object-cover object-top" loading="lazy" decoding="async">
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl text-sage-900">Weronika</h3>
+                        <p class="text-xs uppercase tracking-wider text-sage-800 font-semibold mt-1">Główna Kosmetolog</p>
+                        <p class="text-xs text-stone-500 font-light mt-3 leading-relaxed">Specjalizuje się w zaawansowanej pielęgnacji twarzy oraz terapiach łączonych.</p>
                     </div>
                 </div>
 
                 <!-- Osoba 2 -->
-                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-stone-200/80 shadow-sm flex items-center space-x-5">
-                    <div class="w-14 h-14 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-serif text-lg font-bold border border-brand-600/20 shrink-0">
-                        JA
-                    </div>
-                    <div>
-                        <h3 class="font-serif text-lg text-brand-900">Jagoda</h3>
-                        <p class="text-xs uppercase tracking-wider text-brand-600 font-semibold mt-0.5">Kosmetolog & Stylistka</p>
+                <div class="bg-white/80 backdrop-blur-sm rounded-2xl border border-sand-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <img src="assets/images/team-jagoda.webp" alt="Jagoda - Stylistka Paznokci" class="w-full h-64 object-cover object-top" loading="lazy" decoding="async">
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl text-sage-900">Jagoda</h3>
+                        <p class="text-xs uppercase tracking-wider text-sage-800 font-semibold mt-1">Stylistka Paznokci</p>
+                        <p class="text-xs text-stone-500 font-light mt-3 leading-relaxed">Mistrzyni manicure hybrydowego i stylizacji botanicznej z dbałością o stan płytki.</p>
                     </div>
                 </div>
 
                 <!-- Osoba 3 -->
-                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-stone-200/80 shadow-sm flex items-center space-x-5">
-                    <div class="w-14 h-14 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-serif text-lg font-bold border border-brand-600/20 shrink-0">
-                        WI
-                    </div>
-                    <div>
-                        <h3 class="font-serif text-lg text-brand-900">Wiktor</h3>
-                        <p class="text-xs uppercase tracking-wider text-brand-600 font-semibold mt-0.5">Filifionek</p>
+                <div class="bg-white/80 backdrop-blur-sm rounded-2xl border border-sand-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <img src="assets/images/team-wiktor.webp" alt="Wiktor - Masażysta & Kosmetolog" class="w-full h-64 object-cover object-top" loading="lazy" decoding="async">
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl text-sage-900">Wiktor</h3>
+                        <p class="text-xs uppercase tracking-wider text-sage-800 font-semibold mt-1">Masażysta & Kosmetolog</p>
+                        <p class="text-xs text-stone-500 font-light mt-3 leading-relaxed">Pasjonat masażu Kobido oraz holistycznych rytuałów odprężających.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Sekcja Kontakt & Formularz (RODO & Anti-Spam Compliant) -->
-        <section id="contact" class="bg-white/90 backdrop-blur-md p-8 sm:p-10 rounded-3xl border border-stone-200/80 shadow-sm">
-            <span class="text-xs font-semibold uppercase tracking-widest text-brand-600 block mb-1">Rezerwacja</span>
-            <h2 class="text-3xl font-serif text-brand-900 mb-2">Rezerwacja & Kontakt</h2>
-            <p class="text-xs text-stone-500 mb-8 font-light">Wypełnij formularz – skontaktujemy się w celu potwierdzenia terminu.</p>
+        <section id="contact" class="bg-white/90 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-sand-200 shadow-sm">
+            <span class="text-xs font-semibold uppercase tracking-widest text-sage-800 block mb-1">Kontakt</span>
+            <h2 class="text-3xl font-serif text-sage-900 mb-2">Rezerwacja Terminu</h2>
+            <p class="text-xs text-stone-500 mb-8 font-light">Wypełnij formularz – skontaktujemy się w celu potwierdzenia wizyty.</p>
 
-            <!-- Dynamiczny kontener komunikatów (AJAX Feedback) -->
             <div id="form-status" class="hidden mb-6 p-4 rounded-xl text-sm font-medium transition-all" role="alert"></div>
 
             <form id="contact-form" action="https://formsubmit.co/ajax/wiktor.kozlowski.polska@gmail.com" method="POST" class="space-y-5 max-w-xl">
 
-                <!-- Honeypot (Pułapka na boty - ukryte przed ludźmi) -->
                 <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
-
-                <!-- Wyłączenie reCAPTCHA po stronie FormSubmit (obsługujemy walidację przez AJAX) -->
                 <input type="hidden" name="_captcha" value="false">
 
                 <div>
                     <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-2">Imię i Nazwisko</label>
-                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-brand-600 focus:bg-white focus:outline-none text-sm transition-all">
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-sand-50 border border-sand-200 rounded-xl focus:ring-2 focus:ring-sage-800 focus:bg-white focus:outline-none text-sm transition-all">
                 </div>
 
                 <div>
                     <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-2">Adres E-mail</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-brand-600 focus:bg-white focus:outline-none text-sm transition-all">
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-sand-50 border border-sand-200 rounded-xl focus:ring-2 focus:ring-sage-800 focus:bg-white focus:outline-none text-sm transition-all">
                 </div>
 
                 <div>
                     <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-2">Wiadomość / Preferowany termin</label>
-                    <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:ring-2 focus:ring-brand-600 focus:bg-white focus:outline-none text-sm transition-all"></textarea>
+                    <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-sand-50 border border-sand-200 rounded-xl focus:ring-2 focus:ring-sage-800 focus:bg-white focus:outline-none text-sm transition-all"></textarea>
                 </div>
 
-                <!-- Zgoda RODO / GDPR -->
                 <div class="flex items-start space-x-3 pt-2">
-                    <input type="checkbox" id="rodo" name="rodo_consent" required class="mt-1 h-4 w-4 text-brand-600 focus:ring-brand-600 border-stone-300 rounded">
+                    <input type="checkbox" id="rodo" name="rodo_consent" required class="mt-1 h-4 w-4 text-sage-800 focus:ring-sage-800 border-sand-200 rounded">
                     <label for="rodo" class="text-xs text-stone-500 font-light leading-relaxed">
-                        Wyrażam zgodę na przetwarzanie moich danych osobowych w celu obsługi zapytania i rezerwacji wizyty.
+                        Wyrażam zgodę na przetwarzanie moich danych osobowych w celu obsługi zapytania i rezerwacji wizyty zgodnie z Polityką Prywatności RODO.
                     </label>
                 </div>
 
-                <button type="submit" id="submit-btn" class="w-full bg-brand-900 hover:bg-brand-700 text-white text-xs uppercase tracking-widest font-semibold py-4 rounded-xl transition-all shadow-md flex justify-center items-center">
-                    <span id="btn-text">Wyślij zapytanie</span>
+                <button type="submit" id="submit-btn" class="w-full bg-sage-900 hover:bg-sage-800 text-sand-50 text-xs uppercase tracking-widest font-semibold py-4 rounded-xl transition-all shadow-md flex justify-center items-center">
+                    <span id="btn-text">Wyślij Zgłoszenie</span>
                 </button>
             </form>
         </section>
@@ -229,30 +241,46 @@
 
     <!-- Modal Komponent -->
     <div id="treatment-modal" class="fixed inset-0 z-50 hidden bg-stone-900/40 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-stone-100 transform transition-all">
-            <div class="flex justify-between items-center border-b border-stone-100 pb-4">
-                <h3 id="modal-title" class="text-xl font-serif text-brand-900"></h3>
+        <div class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-sand-200 transform transition-all">
+            <div class="flex justify-between items-center border-b border-sand-200 pb-4">
+                <h3 id="modal-title" class="text-xl font-serif text-sage-900"></h3>
                 <button onclick="closeModal()" class="text-stone-400 hover:text-stone-600 font-bold text-2xl leading-none">&times;</button>
             </div>
             <div class="py-6">
                 <p id="modal-description" class="text-sm text-stone-600 font-light leading-relaxed"></p>
             </div>
-            <div class="pt-4 border-t border-stone-100 text-right">
-                <button onclick="closeModal()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-semibold uppercase tracking-wider px-6 py-2.5 rounded-full transition-colors">
+            <div class="pt-4 border-t border-sand-200 text-right">
+                <button onclick="closeModal()" class="bg-sand-100 hover:bg-sand-200 text-stone-700 text-xs font-semibold uppercase tracking-wider px-6 py-2.5 rounded-full transition-colors">
                     Zamknij
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Stopka -->
-    <footer class="bg-brand-900 text-stone-400 py-8 text-center text-xs font-light">
-        <p>&copy; 2026 BeautySalon. Wszelkie prawa zastrzeżone.</p>
+    <!-- Stopka z odnośnikami Social Media (SVG Inline) -->
+    <footer class="bg-sage-900 text-sand-200 py-12 border-t border-sage-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+                <span class="text-xl font-serif tracking-widest uppercase font-semibold text-sand-50 block">Botanique</span>
+                <p class="text-xs text-sand-200/70 font-light mt-1">&copy; 2026 Botanique Beauty Studio. Wszelkie prawa zastrzeżone.</p>
+            </div>
+
+            <!-- Social Media Icons (Bezpieczny SVG Inline bez zewn. skryptów) -->
+            <div class="flex space-x-6">
+                <!-- Instagram -->
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-sand-200 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <!-- Facebook -->
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-sand-200 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+            </div>
+        </div>
     </footer>
 
-    <!-- Skrypty JS JavaScript -->
+    <!-- Skrypty JavaScript -->
     <script>
-        // Logika otwierania i zamykania modalu
         function openModal(title, description) {
             document.getElementById('modal-title').innerText = title;
             document.getElementById('modal-description').innerText = description;
@@ -269,53 +297,50 @@
             }
         });
 
-        // Asynchroniczna obsługa formularza z nagłówkami JSON (AJAX Fetch API)
+        // Wysyłka AJAX z wymuszeniem JSON
         const contactForm = document.getElementById('contact-form');
         const formStatus = document.getElementById('form-status');
         const submitBtn = document.getElementById('submit-btn');
 
         contactForm.addEventListener('submit', async function (event) {
-            // 1. Zablokuj domyślne przekierowanie przeglądarki
             event.preventDefault();
 
-            // 2. Stan blokady UI (Prevent Double-Submit)
             submitBtn.disabled = true;
             submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
             submitBtn.innerText = 'Wysyłanie...';
             formStatus.classList.add('hidden');
 
-            // 3. Przygotowanie ładunku danych
+            const object = {};
             const formData = new FormData(contactForm);
+            formData.forEach((value, key) => object[key] = value);
+            const jsonPayload = JSON.stringify(object);
 
             try {
-                // 4. Wysyłka asynchroniczna z wymuszeniem odpowiedzi JSON
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
-                    body: formData,
                     headers: {
+                        'Content-Type': 'application/json',
                         'Accept': 'application/json'
-                    }
+                    },
+                    body: jsonPayload
                 });
 
                 if (response.ok) {
-                    // Sukces HTTP 200-299
                     formStatus.className = "mb-6 p-4 rounded-xl text-sm font-medium bg-emerald-50 text-emerald-800 border border-emerald-200";
-                    formStatus.innerText = "Dziękujemy! Wiadomość została pomyślnie wysłana. Skontaktujemy się z Tobą wkrótce.";
+                    formStatus.innerText = "Dziękujemy! Wiadomość została pomyślnie wysłana. Skontaktujemy się wkrótce.";
                     formStatus.classList.remove('hidden');
-                    contactForm.reset(); // Czyszczenie pól
+                    contactForm.reset();
                 } else {
                     throw new Error(`Błąd serwera: ${response.status}`);
                 }
             } catch (error) {
-                // Błąd sieciowy lub HTTP >= 400
                 formStatus.className = "mb-6 p-4 rounded-xl text-sm font-medium bg-rose-50 text-rose-800 border border-rose-200";
-                formStatus.innerText = "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później lub skontaktuj się z nami bezpośrednio.";
+                formStatus.innerText = "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.";
                 formStatus.classList.remove('hidden');
             } finally {
-                // 5. Przywrócenie interaktywności przycisku
                 submitBtn.disabled = false;
                 submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
-                submitBtn.innerText = 'Wyślij zapytanie';
+                submitBtn.innerText = 'Wyślij Zgłoszenie';
             }
         });
     </script>
