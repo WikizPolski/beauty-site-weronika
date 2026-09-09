@@ -1,0 +1,38 @@
+backend:
+  name: github
+  repo: twoj-login-github/weronika-estetics
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "assets/images"
+
+collections:
+  - name: "content"
+    label: "Treści strony"
+    files:
+      - file: "content/services.json"
+        label: "Cennik Zabiegów"
+        name: "services"
+        fields:
+          - label: "Usługi"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "ID Usługi", name: "id", widget: "string" }
+              - { label: "Nazwa Zabiegu", name: "title", widget: "string" }
+              - { label: "Cena", name: "price", widget: "string" }
+              - { label: "Krótki Opis", name: "short_desc", widget: "string" }
+              - { label: "Pełny Opis (Modal)", name: "full_desc", widget: "text" }
+
+      - file: "content/team.json"
+        label: "Zespół"
+        name: "team"
+        fields:
+          - label: "Członkowie Zespołu"
+            name: "team"
+            widget: "list"
+            fields:
+              - { label: "Imię", name: "name", widget: "string" }
+              - { label: "Rola / Stanowisko", name: "role", widget: "string" }
+              - { label: "Opis / Bio", name: "bio", widget: "text" }
+              - { label: "Zdjęcie", name: "image", widget: "image" }

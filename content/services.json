@@ -1,0 +1,30 @@
+[
+  {
+    "id": "manicure-hybrydowy",
+    "title": "Manicure Hybrydowy",
+    "price": "120 zł",
+    "short_desc": "Pielęgnacja paznokci z utwardzeniem UV/LED.",
+    "full_desc": "Zabieg obejmuje opracowanie skórek, nadanie kształtu płytce oraz nałożenie bazy, koloru i topu utwardzanego w lampie LED. Trwałość do 3 tygodni."
+  },
+  {
+    "id": "zabieg-nawilzajacy",
+    "title": "Zabieg Nawilżający Twarzy",
+    "price": "220 zł",
+    "short_desc": "Głębokie oczyszczanie i botaniczny kwas hialuronowy.",
+    "full_desc": "Intensywne nawilżanie dla skóry suchej i zmęczonej. Używamy profesjonalnych ampułek z kwasem hialuronowym."
+  },
+  {
+    "id": "mikrodermabrazja",
+    "title": "Mikrodermabrazja Diamentowa",
+    "price": "300 zł",
+    "short_desc": "Bezinwazyjne złuszczanie naskórka głowicą diamentową.",
+    "full_desc": "Precyzyjne, kontrolowane ścieranie warstwy rogowej naskórka. Wygładza skórę, stymuluje produkcję kolagenu i zmniejsza przebarwienia."
+  },
+  {
+    "id": "mezoterapia",
+    "title": "Mezoterapia Mikroigłowa",
+    "price": "350 zł",
+    "short_desc": "Stymulacja odnowy komórkowej i redukcja mikrozmarszczek.",
+    "full_desc": "Zabieg polegający na mikronakłuwaniu skóry, co pobudza naturalne procesy regeneracyjne oraz ułatwia wprowadzanie substancji aktywnych."
+  }
+]

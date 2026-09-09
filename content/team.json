@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Weronika",
+    "role": "Główna Kosmetolog",
+    "bio": "Specjalizuje się w zaawansowanej pielęgnacji twarzy oraz terapiach łączonych.",
+    "image": "assets/images/team-weronika.webp"
+  },
+  {
+    "name": "Jagoda",
+    "role": "Stylistka Paznokci",
+    "bio": "Mistrzyni manicure hybrydowego i stylizacji botanicznej z dbałością o stan płytki.",
+    "image": "assets/images/team-jagoda.webp"
+  },
+  {
+    "name": "Wiktor",
+    "role": "Filifonek",
+    "bio": "Pasjonat Warhammera 40K",
+    "image": "assets/images/team-wiktor.webp"
+  }
+]
