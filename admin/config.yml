@@ -1,20 +1,22 @@
 backend:
   name: github
-  repo: twoj-login-github/weronika-estetics
+  repo: twoj-login-github/weronika-estetics # Podmień na swój username/repo
   branch: main
 
+# Ścieżki gdzie CMS ma zapisywać dodawane zdjęcia
 media_folder: "assets/images"
 public_folder: "assets/images"
 
+# Definicja kolekcji danych do edycji
 collections:
   - name: "content"
-    label: "Treści strony"
+    label: "Treści Strony"
     files:
       - file: "content/services.json"
         label: "Cennik Zabiegów"
         name: "services"
         fields:
-          - label: "Usługi"
+          - label: "Lista Usług"
             name: "services"
             widget: "list"
             fields:
@@ -25,7 +27,7 @@ collections:
               - { label: "Pełny Opis (Modal)", name: "full_desc", widget: "text" }
 
       - file: "content/team.json"
-        label: "Zespół"
+        label: "Nasz Zespół"
         name: "team"
         fields:
           - label: "Członkowie Zespołu"
