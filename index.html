@@ -163,11 +163,13 @@
         return div.innerHTML;
     }
 
+    // Podmień całą funkcję loadContent() w index.html na poniższą:
     async function loadContent() {
         try {
             // 1. Pobieranie i renderowanie cennika
             const resServices = await fetch('content/services.json');
-            const services = await resServices.json();
+            const dataServices = await resServices.json();
+            const services = dataServices.services || []; // Dostosowanie do klucza root
             const servicesContainer = document.getElementById('services-container');
 
             servicesContainer.innerHTML = services.map((s, index) => `
@@ -200,7 +202,8 @@
 
             // 2. Pobieranie i renderowanie zespołu
             const resTeam = await fetch('content/team.json');
-            const team = await resTeam.json();
+            const dataTeam = await resTeam.json();
+            const team = dataTeam.team || []; // Dostosowanie do klucza root
             const teamContainer = document.getElementById('team-container');
 
             teamContainer.innerHTML = team.map(t => `
