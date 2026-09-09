@@ -2,12 +2,12 @@ backend:
   name: github
   repo: wikizpolski/beauty-site-weronika
   branch: main
+  base_url: https://decap-bridge.vercel.app
+  auth_endpoint: /api/auth
 
-# Ścieżki gdzie CMS ma zapisywać dodawane zdjęcia
 media_folder: "assets/images"
 public_folder: "assets/images"
 
-# Definicja kolekcji danych do edycji
 collections:
   - name: "content"
     label: "Treści Strony"
