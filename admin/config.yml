@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: twoj-login-github/weronika-estetics # Podmień na swój username/repo
+  repo: wikizpolski/beauty-site-weronika
   branch: main
 
 # Ścieżki gdzie CMS ma zapisywać dodawane zdjęcia
