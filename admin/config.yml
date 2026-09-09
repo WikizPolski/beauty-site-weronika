@@ -2,8 +2,6 @@ backend:
   name: github
   repo: wikizpolski/beauty-site-weronika
   branch: main
-  base_url: https://decap-bridge.vercel.app
-  auth_endpoint: /api/auth
 
 media_folder: "assets/images"
 public_folder: "assets/images"
